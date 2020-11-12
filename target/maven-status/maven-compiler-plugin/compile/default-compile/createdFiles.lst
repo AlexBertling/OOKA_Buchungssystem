@@ -1,0 +1,10 @@
+hbrs\ooka\hotel\HotelRetrieval.class
+hbrs\ooka\system\PortCaching.class
+hbrs\ooka\cache\Caching.class
+hbrs\ooka\system\PortHotelsuche.class
+hbrs\ooka\db\DBAccess.class
+hbrs\ooka\system\PortCachingDummy.class
+hbrs\ooka\system\Buchungssystem.class
+hbrs\ooka\App.class
+hbrs\ooka\hotel\Hotelsuche.class
+hbrs\ooka\hotel\Hotel.class

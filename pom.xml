@@ -7,6 +7,7 @@
   <groupId>hbrs.ooka</groupId>
   <artifactId>OOKA_Buchungssystem</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
   <name>OOKA_Buchungssystem</name>
   <!-- FIXME change it to the project's website -->
@@ -25,6 +26,12 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.1-901-1.jdbc4</version>
+    </dependency>
+
   </dependencies>
 
   <build>
