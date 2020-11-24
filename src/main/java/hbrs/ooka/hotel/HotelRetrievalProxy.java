@@ -11,30 +11,30 @@ import java.util.logging.Logger;
 
 public class HotelRetrievalProxy implements Hotelsuche {
 
-    private HotelRetrieval hotelRetrieval;
+    private Hotelsuche hotelsuche;
     private Logger logger;
 
     public HotelRetrievalProxy(Buchungssystem system) {
         logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         logger.info("Hotel Retrieval connected to port.");
-        this.hotelRetrieval = new HotelRetrieval(system);
+        this.hotelsuche = new HotelRetrieval(system);
     }
 
     @Override
     public List<Hotel> getHotelByName(String name) {
         logger.info("Search Hotel-Db by Query: " + name);
-        return this.hotelRetrieval.getHotelByName(name);
+        return this.hotelsuche.getHotelByName(name);
     }
 
     @Override
     public void openSession() {
         logger.info("Open session to Hotel-Db");
-        this.hotelRetrieval.openSession();
+        this.hotelsuche.openSession();
     }
 
     @Override
     public void closeSession() {
         logger.info("Close session to Hotel-Db");
-        this.hotelRetrieval.closeSession();
+        this.hotelsuche.closeSession();
     }
 }
