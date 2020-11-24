@@ -1,10 +1,8 @@
 package hbrs.ooka.system;
 
-import hbrs.ooka.cache.Caching;
-import hbrs.ooka.hotel.HotelRetrieval;
-import hbrs.ooka.hotel.HotelRetrievalProxy;
-
 public class Buchungssystem {
+
+    private static Buchungssystem instance;
 
     private PortSuche portSuche;
     private PortCaching portCaching;
@@ -26,5 +24,16 @@ public class Buchungssystem {
 
     public void setPortCaching(PortCaching portCaching) {
         this.portCaching = portCaching;
+    }
+
+    @Start
+    public static void start(){
+        instance = new Buchungssystem();
+    }
+
+    @Stop
+    public static void stop(){
+        instance.getPortSuche().getHotelSuche().closeSession();
+        instance = null;
     }
 }
