@@ -1,8 +1,11 @@
 package hbrs.ooka;
 
+import hbrs.ooka.hotel.Hotel;
+import hbrs.ooka.hotel.Hotelsuche;
 import hbrs.ooka.system.Buchungssystem;
 import hbrs.ooka.system.PortCaching;
-import hbrs.ooka.system.PortHotelsuche;
+import hbrs.ooka.hotel.HotelRetrievalProxy;
+import hbrs.ooka.system.PortSuche;
 
 public class App 
 {
@@ -10,17 +13,18 @@ public class App
     {
         Buchungssystem system = new Buchungssystem();
 
-        PortHotelsuche portHotelsuche = system.getPortHotelsuche();
-        portHotelsuche.openSession();
+        PortSuche portSuche = system.getPortSuche();
+        Hotelsuche hotelsuche = portSuche.getHotelSuche();
+        hotelsuche.openSession();
 
-        System.out.println(portHotelsuche.getHotelByName("Berg").get(0).getName());
+        System.out.println(hotelsuche.getHotelByName("Berg").get(0).getName());
 
         system.setPortCaching(new PortCaching());
 
-        System.out.println(portHotelsuche.getHotelByName("Berg").get(0).getName());
+        System.out.println(hotelsuche.getHotelByName("Berg").get(0).getName());
 
-        System.out.println(portHotelsuche.getHotelByName("Berg").get(0).getName());
+        System.out.println(hotelsuche.getHotelByName("Berg").get(0).getName());
 
-        portHotelsuche.closeSession();
+        hotelsuche.closeSession();
     }
 }

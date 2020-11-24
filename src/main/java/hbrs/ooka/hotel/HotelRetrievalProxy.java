@@ -1,22 +1,23 @@
-package hbrs.ooka.system;
+package hbrs.ooka.hotel;
 
 import hbrs.ooka.db.DBAccess;
 import hbrs.ooka.hotel.Hotel;
 import hbrs.ooka.hotel.HotelRetrieval;
 import hbrs.ooka.hotel.Hotelsuche;
+import hbrs.ooka.system.Buchungssystem;
 
 import java.util.List;
 import java.util.logging.Logger;
 
-public class PortHotelsuche implements Hotelsuche {
+public class HotelRetrievalProxy implements Hotelsuche {
 
     private HotelRetrieval hotelRetrieval;
     private Logger logger;
 
-    public PortHotelsuche(HotelRetrieval hotelRetrieval) {
+    public HotelRetrievalProxy(Buchungssystem system) {
         logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         logger.info("Hotel Retrieval connected to port.");
-        this.hotelRetrieval = hotelRetrieval;
+        this.hotelRetrieval = new HotelRetrieval(system);
     }
 
     @Override

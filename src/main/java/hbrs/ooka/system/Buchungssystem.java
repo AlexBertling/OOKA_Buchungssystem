@@ -1,28 +1,22 @@
 package hbrs.ooka.system;
 
 import hbrs.ooka.cache.Caching;
-import hbrs.ooka.db.DBAccess;
-import hbrs.ooka.hotel.Hotel;
 import hbrs.ooka.hotel.HotelRetrieval;
-
-import java.util.List;
+import hbrs.ooka.hotel.HotelRetrievalProxy;
 
 public class Buchungssystem {
 
-    private HotelRetrieval hotelRetrieval;
-
-    private PortHotelsuche portHotelsuche;
+    private PortSuche portSuche;
     private Caching portCaching;
 
     public Buchungssystem() {
 
-        this.hotelRetrieval = new HotelRetrieval(this);
-        this.portHotelsuche = new PortHotelsuche(this.hotelRetrieval);
+        this.portSuche = new PortSuche(this);
 
     }
 
-    public PortHotelsuche getPortHotelsuche() {
-        return portHotelsuche;
+    public PortSuche getPortSuche() {
+        return portSuche;
     }
 
     public Caching getPortCaching() {
