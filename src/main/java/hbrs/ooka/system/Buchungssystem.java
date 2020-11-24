@@ -7,11 +7,12 @@ import hbrs.ooka.hotel.HotelRetrievalProxy;
 public class Buchungssystem {
 
     private PortSuche portSuche;
-    private Caching portCaching;
+    private PortCaching portCaching;
 
     public Buchungssystem() {
 
         this.portSuche = new PortSuche(this);
+        this.portCaching = new PortCaching();
 
     }
 
@@ -19,10 +20,7 @@ public class Buchungssystem {
         return portSuche;
     }
 
-    public Caching getPortCaching() {
-        if(portCaching == null){
-            return new PortCachingDummy();
-        }
+    public PortCaching getPortCaching() {
         return portCaching;
     }
 

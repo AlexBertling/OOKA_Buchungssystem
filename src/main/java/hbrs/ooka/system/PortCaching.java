@@ -1,22 +1,24 @@
 package hbrs.ooka.system;
 
+import hbrs.ooka.cache.CacheProxy;
 import hbrs.ooka.cache.Caching;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class PortCaching implements Caching {
+public class PortCaching {
 
-    private final HashMap<String, List<Object>> hashmap = new HashMap<>();
+    private Caching cache;
 
-    @Override
-    public void cacheResult(String key, List<? extends Object> value) {
-        hashmap.put(key, (List<Object>) value);
+    public Caching getCache() {
+        if(cache == null){
+            cache = new CacheProxy();
+        }
+        return cache;
     }
 
-    @Override
-    public List<Object> getEntry(String key) {
-        System.out.println(hashmap.get(key));
-        return hashmap.get(key);
+    public void setCache(Caching cache) {
+        this.cache = cache;
     }
+
 }

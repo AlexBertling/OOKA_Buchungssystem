@@ -19,7 +19,7 @@ public class HotelRetrieval implements Hotelsuche {
     public List<Hotel> getHotelByName(String name) {
         List<Hotel> hotels = new ArrayList<>();
 
-        List<Object> cachedEntry = this.system.getPortCaching().getEntry(name);
+        List<Object> cachedEntry = this.system.getPortCaching().getCache().getEntry(name);
         if(cachedEntry != null) {
             // Cached Result found
             System.out.println("Use cached result...");
@@ -38,7 +38,7 @@ public class HotelRetrieval implements Hotelsuche {
                 String city = result.get(i*3+2);
                 hotels.add(new Hotel(id, n, city));
             }
-            this.system.getPortCaching().cacheResult(name, hotels);
+            this.system.getPortCaching().getCache().cacheResult(name, hotels);
         }
 
         return hotels;
