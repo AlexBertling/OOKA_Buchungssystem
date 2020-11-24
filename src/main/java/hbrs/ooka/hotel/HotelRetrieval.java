@@ -52,7 +52,7 @@ public class HotelRetrieval implements Hotelsuche {
 
     @Override
     public void closeSession() {
-        acc.closeConnection();
+        if(this.acc != null) acc.closeConnection();
     }
 
 }

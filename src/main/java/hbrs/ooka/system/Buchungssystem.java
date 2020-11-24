@@ -12,6 +12,7 @@ public class Buchungssystem {
 
     public Buchungssystem() {
 
+        System.out.println("Buchungssystem gestartet....");
         this.portSuche = new PortSuche(this);
         this.portCaching = new PortCaching();
 
@@ -30,8 +31,9 @@ public class Buchungssystem {
     }
 
     @Start
-    public static void start(){
+    public static Buchungssystem start(){
         instance = new Buchungssystem();
+        return instance;
     }
 
     @Stop
