@@ -1,5 +1,8 @@
 package hbrs.ooka.system;
 
+import hbrs.ooka.annotation.Start;
+import hbrs.ooka.annotation.Stop;
+
 public class Buchungssystem {
 
     private static Buchungssystem instance;

@@ -1,4 +1,4 @@
-package hbrs.ooka.system;
+package hbrs.ooka.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
