@@ -2,17 +2,18 @@ package hbrs.ooka.system;
 
 import hbrs.ooka.annotation.Start;
 import hbrs.ooka.annotation.Stop;
+import hbrs.ooka.gui.GUI;
 
 public class Buchungssystem {
-
-    private static Buchungssystem instance;
 
     private PortSuche portSuche;
     private PortCaching portCaching;
 
+    private GUI gui;
+
     public Buchungssystem() {
 
-        System.out.println("Buchungssystem gestartet....");
+        System.out.println("Buchungssystem initialized....");
         this.portSuche = new PortSuche(this);
         this.portCaching = new PortCaching();
 
@@ -31,14 +32,18 @@ public class Buchungssystem {
     }
 
     @Start
-    public static Buchungssystem start(){
-        instance = new Buchungssystem();
-        return instance;
+    public void start(){
+        System.out.println("Buchungssystem started...");
+        gui = new GUI(this);
+        gui.openWindow();
+
+        getPortSuche().getHotelSuche().openSession();
+
     }
 
     @Stop
-    public static void stop(){
-        instance.getPortSuche().getHotelSuche().closeSession();
-        instance = null;
+    public void stop(){
+        System.out.println("Buchungssystem stopped...");
+        gui.closeWindow();
     }
 }

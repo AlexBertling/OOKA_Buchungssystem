@@ -71,4 +71,11 @@ class BuchungssystemTest {
         assertEquals("Berg Hotel", hotel.getName());
     }
 
+    @Test
+    void useGUI() throws InterruptedException {
+        buchungssystem.start();
+        Thread.sleep(5000);
+        buchungssystem.stop();
+    }
+
 }
