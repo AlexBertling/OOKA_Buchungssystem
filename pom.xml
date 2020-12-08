@@ -44,10 +44,9 @@
       </dependency>
     <dependency>
       <groupId>hbrs.ooka</groupId>
-      <artifactId>OOKA_Annotation</artifactId>
+      <artifactId>OOKA_LZU</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
-
   </dependencies>
 
   <build>
