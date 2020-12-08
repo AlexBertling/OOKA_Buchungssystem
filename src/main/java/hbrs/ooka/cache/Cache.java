@@ -14,7 +14,6 @@ public class Cache implements Caching {
 
     @Override
     public List<Object> getEntry(String key) {
-        System.out.println(hashmap.get(key));
         return hashmap.get(key);
     }
 }

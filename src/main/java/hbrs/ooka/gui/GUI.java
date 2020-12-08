@@ -17,8 +17,8 @@ public class GUI {
     private JFrame frame;
 
     public GUI(Buchungssystem b){
-        System.out.println("GUI from Buchungssystem");
         buchungssystem = b;
+        buchungssystem.getLogger().sendLog("GUI from Buchungssystem");
     }
 
     public void openWindow(){

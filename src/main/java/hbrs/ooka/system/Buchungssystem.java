@@ -1,8 +1,10 @@
 package hbrs.ooka.system;
 
+import hbrs.ooka.annotation.Inject;
 import hbrs.ooka.annotation.Start;
 import hbrs.ooka.annotation.Stop;
 import hbrs.ooka.gui.GUI;
+import hbrs.ooka.log.Logger;
 
 public class Buchungssystem {
 
@@ -11,9 +13,12 @@ public class Buchungssystem {
 
     private GUI gui;
 
+    @Inject
+    private Logger logger;
+
     public Buchungssystem() {
 
-        System.out.println("Buchungssystem initialized....");
+        //System.out.println("Buchungssystem initialized....");
         this.portSuche = new PortSuche(this);
         this.portCaching = new PortCaching();
 
@@ -31,9 +36,18 @@ public class Buchungssystem {
         this.portCaching = portCaching;
     }
 
+    public Logger getLogger() {
+        return logger;
+    }
+
+    @Inject
+    public void setLogger(Logger logger) {
+        this.logger = logger;
+    }
+
     @Start
     public void start(){
-        System.out.println("Buchungssystem started...");
+        logger.sendLog("Buchungssystem started...");
         gui = new GUI(this);
         gui.openWindow();
 
@@ -43,7 +57,7 @@ public class Buchungssystem {
 
     @Stop
     public void stop(){
-        System.out.println("Buchungssystem stopped...");
+        logger.sendLog("Buchungssystem stopped...");
         gui.closeWindow();
     }
 }

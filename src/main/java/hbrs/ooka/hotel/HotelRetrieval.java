@@ -22,14 +22,14 @@ public class HotelRetrieval implements Hotelsuche {
         List<Object> cachedEntry = this.system.getPortCaching().getCache().getEntry(name);
         if(cachedEntry != null) {
             // Cached Result found
-            System.out.println("Use cached result...");
+            this.system.getLogger().sendLog("Use cached result...");
             for(Object o : cachedEntry){
                 Hotel h = (Hotel) o;
                 hotels.add(new Hotel(h.getId(),h.getName(),h.getCity()));
             }
         } else {
             // No Cache existing
-            System.out.println("No cache, access db...");
+            this.system.getLogger().sendLog("No cache, access db...");
             List<String> result = acc.getObjects(DBAccess.HOTEL, name);
             int hotelCount = result.size() / 3;
             for(int i=0; i<hotelCount; i++){

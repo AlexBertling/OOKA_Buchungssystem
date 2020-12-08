@@ -3,6 +3,7 @@ package hbrs.ooka.system;
 import hbrs.ooka.cache.Caching;
 import hbrs.ooka.hotel.Hotel;
 import hbrs.ooka.hotel.Hotelsuche;
+import hbrs.ooka.log.LoggerFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +20,7 @@ class BuchungssystemTest {
     @BeforeEach
     void setUp() {
         buchungssystem = new Buchungssystem();
+        buchungssystem.setLogger(LoggerFactory.createLogger());
     }
 
     @AfterEach
